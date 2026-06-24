@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: lessonlight
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_CENTS
+        value: "700"
+      - key: APP_URL
+        sync: false

@@ -1,0 +1,8 @@
+{
+  "name": "lessonlight",
+  "version": "1.0.0",
+  "description": "LessonLight — ready-to-teach Bible lessons for teachers",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
