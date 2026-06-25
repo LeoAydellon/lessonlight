@@ -11,6 +11,6 @@ services:
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_PRICE_CENTS
-        value: "700"
+        value: "1900"
       - key: APP_URL
         sync: false
