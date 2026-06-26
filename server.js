@@ -181,6 +181,15 @@ const server = http.createServer(async (req, res) => {
         } catch (e) { return json(res, 500, { ok: false, error: e.message }); }
     }
 
+
+    // ---- static assets (SEO): og image, crawler files ----
+    if (req.method === 'GET' && ['/og.png','/robots.txt','/sitemap.xml','/favicon.ico'].includes(url.pathname)) {
+        const map = { '/og.png':'image/png', '/robots.txt':'text/plain', '/sitemap.xml':'application/xml', '/favicon.ico':'image/png' };
+        const fp = path.join(__dirname, url.pathname === '/favicon.ico' ? 'og.png' : url.pathname.slice(1));
+        try { const buf = fs.readFileSync(fp); res.writeHead(200, { 'Content-Type': map[url.pathname], 'Cache-Control':'public, max-age=86400' }); res.end(buf); return; }
+        catch { /* fall through to 404 */ }
+    }
+
     res.writeHead(404); res.end('not found');
 });
 

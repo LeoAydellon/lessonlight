@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lessonlight.onrender.com/sitemap.xml
